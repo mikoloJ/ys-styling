@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
       consultationTime:      'entry.2047283683',
       consultationPreference:'entry.1749074624',
       outfitType:             'entry.642053170',
-      outfitTypeOther:        'entry.REPLACE_04_other',
+      outfitTypeOther:        'entry.642053170.other_option_response',
       eventDate:              'entry.1931729690',
       eventLocation:          'entry.258476825',
       numberOfLooks:          'entry.532914548',
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
       fitConcerns:            'entry.440123631',
       detailsWanted:          'entry.1685981451',
       mattersMost:            'entry.1327439628',
-      mattersMostOther:       'entry.REPLACE_14_other',
+      mattersMostOther:       'entry.1327439628.other_option_response',
       budget:                 'entry.1597507194',
       anythingElse:           'entry.1646345548',
       name:                   'entry.355083793',
@@ -291,10 +291,25 @@ document.addEventListener('DOMContentLoaded', function () {
     var submitBtn = form.querySelector('button[type="submit"]');
 
     form.addEventListener('submit', function () {
+      /* Google Forms only registers a checkbox/radio "Other" answer if a
+         sentinel value is submitted under the question's own entry ID,
+         alongside the free-text answer under entry.ID.other_option_response.
+         Add that sentinel here whenever the matching "Other" box has text. */
+      ['outfitType', 'mattersMost'].forEach(function (key) {
+        var otherInput = form.querySelector('[data-field="' + key + 'Other"]');
+        if (otherInput && otherInput.value.trim()) {
+          var sentinel = document.createElement('input');
+          sentinel.type = 'hidden';
+          sentinel.name = GOOGLE_FORM_CONFIG.fields[key];
+          sentinel.value = '__other_option__';
+          form.appendChild(sentinel);
+        }
+      });
+
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
       setTimeout(function () {
         if (cStatus) {
-          cStatus.textContent = 'Thank you — your consultation request has been received. We will reach out within 1–2 business days.';
+          cStatus.textContent = 'Thank you. Your consultation request has been received. We will reach out within 1–2 business days.';
           cStatus.classList.remove('error');
           cStatus.classList.add('success', 'is-visible');
         }
