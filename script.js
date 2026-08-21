@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .setMimeType(ContentService.MimeType.JSON);
         }
   ---------------------------------------------------------------- */
-  var NEWSLETTER_ENDPOINT = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+  var NEWSLETTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVq1C8BxxrM_3uaRASRA2lsrMiGPws_3dYYSrWQzboGqD34uPgxwl6C2XdlfoXka-J/exec';
 
   document.querySelectorAll('.newsletter-form').forEach(function (form) {
     form.setAttribute('action', NEWSLETTER_ENDPOINT);
