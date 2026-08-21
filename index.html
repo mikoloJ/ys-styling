@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YS Styling — Where Craft Meets Couture</title>
+<meta name="description" content="YS Styling is a Nigeria-based luxury bridal and bespoke fashion house crafting custom gowns, couture and ready-to-wear from concept to final fitting." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter+Tight:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><picture><source srcset="logo.webp" type="image/webp" /><img src="logo.png" alt="YS Styling" width="150" height="194" /></picture></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/" class="is-active">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/bridal">Bridal</a></li>
+        <li><a href="/couture">Couture</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="/consultation" class="btn btn-line-dark is-active"><span class="btn-gold-label">Book a Consultation</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ARRIVAL POPUP — Bridal Collection highlight ============ -->
+<div class="modal-scrim" data-popup>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Bridal collection highlight">
+    <button class="modal-close" data-popup-close aria-label="Close">&times;</button>
+    <div class="modal-media">
+     <img src="images/popup-bridal.webp" alt="Bridal collection preview" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+    <div class="modal-copy">
+      <span class="eyebrow">Welcome to YS Styling</span>
+      <h3>The Bridal Collection</h3>
+      <p>Hand-finished couture gowns built around your story — from first sketch to final fitting. Take a look at the collection currently in the atelier.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="bridal.html" class="btn btn-gold">Explore Bridal</a>
+        <button class="btn btn-line-light" data-popup-close>Continue Browsing</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img src="images/hero-bridal.webp" alt="YS Styling bridal gown" class="hero-bg-image" fetchpriority="high" />
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1>Where Craft Meets Couture</h1>
+      <p class="lede">A luxury bridal and bespoke fashion house dedicated to personalized, high-end styling from concept to final fitting.</p>
+      <div class="hero-actions">
+        <a href="/consultation" class="btn btn-gold">Book a Consultation</a>
+        <a href="bridal.html" class="btn btn-line-light">View Bridal Collection</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT TEASER ============ -->
+<section class="on-paper section-tight">
+  <div class="container split" style="background:var(--paper-warm);">
+    <div class="split-copy reveal">
+      <span class="eyebrow" style="color:var(--gold-deep);">The House</span>
+      <h2 style="margin-top:14px;">Every stitch, considered.</h2>
+      <p class="lede" style="margin-top:20px;">YS Styling exists for clients who want more than a garment off a rack — a piece built entirely around them. Our in-house atelier oversees every stage of production: pattern, cut, fitting, and finish, so quality and timelines are never left to chance.</p>
+      <a href="/about" class="btn btn-line-dark" style="margin-top:32px; align-self:flex-start;">Our Philosophy</a>
+    </div>
+   <div class="split-media reveal">
+  <img src="images/about-craft.webp" alt="YS Styling atelier at work" style="width:100%;height:100%;object-fit:cover;display:block;" />
+</div>
+  </div>
+</section>
+
+<!-- ============ COLLECTIONS ============ -->
+<section class="on-ink" style="padding-bottom:0;">
+  <div class="container section-head reveal">
+    <span class="eyebrow">Collections</span>
+    <h2>Two ways to wear YS Styling.</h2>
+  </div>
+  <div class="collections-grid">
+    <a href="bridal.html" class="collection-card reveal">
+      <img src="images/collection-bridal.webp" alt="Bridal collection" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      <div class="collection-card-body">
+        <span class="eyebrow">
+		</span>
+        <h3>Couture Wedding Gowns</h3>
+        <span class="cc-link">Explore Bridal <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
+    <a href="couture.html" class="collection-card reveal">
+      <img src="images/collection-couture.webp" alt="Couture and ready-to-wear collection" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      <div class="collection-card-body">
+        <span class="eyebrow"></span>
+        <h3>Bespoke &amp; Ready-to-Wear</h3>
+        <span class="cc-link">Explore Couture <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="on-ink">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2>From first sketch to final fitting.</h2>
+    </div>
+    <div class="process-list reveal">
+      <div class="process-step">
+        <div class="num">01</div>
+        <h3>Consultation</h3>
+        <p>We start with your story, occasion, and vision — in person or virtually.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">02</div>
+        <h3>Design</h3>
+        <p>Sketches, fabric selection, and silhouette developed around you.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">03</div>
+        <h3>Fittings</h3>
+        <p>Multiple fittings to perfect structure, movement, and finish.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">04</div>
+        <h3>Reveal</h3>
+        <p>Your finished piece, delivered and styled for the moment it was made for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+  <div class="cta-banner-inner reveal">
+    <span class="eyebrow">Ready When You Are</span>
+    <h2 style="margin-top:14px;">Let's design your next piece.</h2>
+    <p>Consultations are limited to protect the time we give every client. Reserve yours today.</p>
+    <a href="/consultation" class="btn btn-gold">Book a Consultation</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <picture><source srcset="logo.webp" type="image/webp" /><img src="logo.png" alt="YS Styling" width="150" height="194" loading="lazy" /></picture>
+      <p>A luxury bridal and bespoke fashion house dedicated to personalized, high-end styling — from concept to final fitting.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="mailto:ysstyling.sales@gmail.com">ysstyling.sales@gmail.com</a></li>
+        <li><a href="/consultation">Book a Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/bridal">Bridal</a></li>
+        <li><a href="/couture">Couture &amp; RTW</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/ys_styling/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>Copyright &copy; 2026 YS Styling. All rights reserved.</p>
+      <div class="footer-social"><a href="/consultation">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============ NEWSLETTER POPUP (exit-intent or time-on-site) ============ -->
+<div class="modal-scrim" data-newsletter-popup>
+  <div class="modal-card modal-narrow" role="dialog" aria-modal="true" aria-label="Subscribe to our newsletter">
+    <button class="modal-close" data-popup-close aria-label="Close">&times;</button>
+    <div class="modal-copy">
+      <span class="eyebrow">Before You Go</span>
+      <h3>Join the YS Styling List</h3>
+      <p>First access to new collections, styling notes, and consultation openings straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="form submission target"></iframe>
+<script src="script.js"></script>
+</body>
+</html>

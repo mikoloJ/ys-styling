@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Consultation — YS Styling</title>
+<meta name="description" content="Book a bridal, couture, or ready-to-wear consultation with YS Styling." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter+Tight:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><picture><source srcset="logo.webp" type="image/webp" /><img src="logo.png" alt="YS Styling" width="150" height="194" /></picture></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/bridal">Bridal</a></li>
+        <li><a href="/couture">Couture</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold-deep);">Reserve Your Time</span>
+    <h1 style="margin-top:14px;">Book a Consultation</h1>
+    <p class="lede">Tell us a little about what you're looking for, and our team will confirm your consultation. Prefer to reach us directly? Our contact details are alongside the form.</p>
+    <p class="lede" style="margin-top:16px; font-size:15px;">Consultation fees: <strong>&#8358;100,000</strong> for Bridal &amp; Couture, <strong>&#8358;50,000</strong> for Asoebi — non-refundable regardless of outcome. Payment details will follow once your request is received.</p>
+  </div>
+</section>
+
+<section class="on-ink">
+  <div class="container">
+    <div class="split" style="background:transparent; gap:60px; align-items:start;">
+
+      <!-- FORM -->
+      <div class="reveal">
+        <form id="consultation-form" method="POST" target="hidden_iframe">
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="f-cdate">Preferred Consultation Date</label>
+              <input id="f-cdate" type="date" data-field="consultationDate" required />
+            </div>
+            <div class="field">
+              <label for="f-ctime">Preferred Consultation Time</label>
+              <input id="f-ctime" type="time" data-field="consultationTime" required />
+            </div>
+
+            <div class="field full">
+              <label>Consultation Preference</label>
+              <div class="choice-group">
+                <label class="choice-option"><input type="radio" name="consultationPreference" data-field="consultationPreference" value="In-person" required /> In-person</label>
+                <label class="choice-option"><input type="radio" name="consultationPreference" data-field="consultationPreference" value="Virtual" /> Virtual</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label>Type of Outfit Needed</label>
+              <div class="choice-group">
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Wedding" /> Wedding</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Bridal" /> Bridal</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Birthday" /> Birthday</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Traditional Event" /> Traditional Event</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Red Carpet" /> Red Carpet</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Photoshoot" /> Photoshoot</label>
+                <label class="choice-option"><input type="checkbox" data-field="outfitType" value="Wedding Guest" /> Wedding Guest</label>
+              </div>
+              <input type="text" style="margin-top:10px;" placeholder="Other (please specify)" data-field="outfitTypeOther" />
+            </div>
+
+            <div class="field">
+              <label for="f-edate">Event Date</label>
+              <input id="f-edate" type="date" data-field="eventDate" />
+            </div>
+            <div class="field">
+              <label for="f-eloc">Event Location</label>
+              <input id="f-eloc" type="text" data-field="eventLocation" />
+            </div>
+
+            <div class="field">
+              <label for="f-looks">Number of Looks Required</label>
+              <input id="f-looks" type="text" data-field="numberOfLooks" required />
+            </div>
+            <div class="field">
+              <label for="f-budget">Budget for This Dress/Dresses</label>
+              <input id="f-budget" type="text" data-field="budget" required />
+            </div>
+
+            <div class="field full">
+              <label for="f-vibe">Describe Your Desired Look/Vibe</label>
+              <textarea id="f-vibe" data-field="desiredVibe" required></textarea>
+            </div>
+
+            <div class="field full">
+              <label>Do You Have Inspiration Pictures? <span style="font-weight:400; text-transform:none; letter-spacing:0;">(kindly send images before or during consultation)</span></label>
+              <div class="choice-group">
+                <label class="choice-option"><input type="radio" name="hasInspiration" data-field="hasInspiration" value="Yes" required /> Yes</label>
+                <label class="choice-option"><input type="radio" name="hasInspiration" data-field="hasInspiration" value="No" /> No</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-colors">Preferred Colours</label>
+              <input id="f-colors" type="text" data-field="preferredColours" required />
+            </div>
+            <div class="field">
+              <label for="f-avoid">Colours/Styles to Avoid</label>
+              <input id="f-avoid" type="text" data-field="avoidColours" required />
+            </div>
+
+            <div class="field full">
+              <label for="f-fit">Specific Fit Preferences or Concerns</label>
+              <textarea id="f-fit" data-field="fitConcerns" required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="f-details">Details You'd Like Included <span style="font-weight:400; text-transform:none; letter-spacing:0;">(beading, structure, sleeves, corsetry, draping, etc.)</span></label>
+              <textarea id="f-details" data-field="detailsWanted"></textarea>
+            </div>
+
+            <div class="field full">
+              <label>What Matters Most to You for This Outfit?</label>
+              <div class="choice-group">
+                <label class="choice-option"><input type="checkbox" data-field="mattersMost" value="Perfect Fit" /> Perfect Fit</label>
+                <label class="choice-option"><input type="checkbox" data-field="mattersMost" value="Luxury Finish" /> Luxury Finish</label>
+                <label class="choice-option"><input type="checkbox" data-field="mattersMost" value="Unique Design" /> Unique Design</label>
+                <label class="choice-option"><input type="checkbox" data-field="mattersMost" value="Comfort" /> Comfort</label>
+                <label class="choice-option"><input type="checkbox" data-field="mattersMost" value="Timely Delivery" /> Timely Delivery</label>
+              </div>
+              <input type="text" style="margin-top:10px;" placeholder="Other (please specify)" data-field="mattersMostOther" />
+            </div>
+
+            <div class="field full">
+              <label for="f-else">Anything Else You'd Like Us to Know?</label>
+              <textarea id="f-else" data-field="anythingElse"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="f-name">Your Name</label>
+              <input id="f-name" type="text" data-field="name" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Working Phone Number (WhatsApp)</label>
+              <input id="f-phone" type="tel" data-field="phone" required />
+            </div>
+
+            <div class="field">
+              <label for="f-email">Email Address</label>
+              <input id="f-email" type="email" data-field="email" required />
+            </div>
+            <div class="field">
+              <label for="f-when">When Do You Need the Outfit?</label>
+              <input id="f-when" type="date" data-field="neededByDate" required />
+            </div>
+
+            <div class="field full">
+              <label for="f-delivery">Delivery Details</label>
+              <textarea id="f-delivery" data-field="deliveryDetails" required></textarea>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-gold" style="margin-top:28px;">Request Consultation</button>
+          <p class="form-note">By submitting, you agree to be contacted by YS Styling regarding your request. A non-refundable consultation fee applies (&#8358;100,000 Bridal/Couture, &#8358;50,000 Asoebi) — payment details will be shared once your request is received.</p>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="form submission target"></iframe>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="reveal" style="padding-top:8px;">
+        <span class="eyebrow">Prefer to Reach Us Directly?</span>
+        <h2 style="margin-top:14px; color:var(--paper); font-size:clamp(24px,3vw,32px);">Get in touch.</h2>
+        <div class="contact-info-list" style="margin-top:36px;">
+          <div class="contact-info-item">
+            <span class="eyebrow">Email</span>
+            <a href="mailto:ysstyling.sales@gmail.com">ysstyling.sales@gmail.com</a>
+          </div>
+          <div class="contact-info-item">
+            <span class="eyebrow">Location</span>
+            <p>Lagos, Nigeria</p>
+          </div>
+          <div class="contact-info-item">
+            <span class="eyebrow">Instagram</span>
+            <a href="https://www.instagram.com/ys_styling/" target="_blank" rel="noopener">@ys_styling</a>
+          </div>
+          <div class="contact-info-item">
+            <span class="eyebrow">Response Time</span>
+            <p>We typically respond within 1–2 business days.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <picture><source srcset="logo.webp" type="image/webp" /><img src="logo.png" alt="YS Styling" width="150" height="194" loading="lazy" /></picture>
+      <p>A luxury bridal and bespoke fashion house dedicated to personalized, high-end styling — from concept to final fitting.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="mailto:ysstyling.sales@gmail.com">ysstyling.sales@gmail.com</a></li>
+        <li><a href="/consultation">Book a Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/bridal">Bridal</a></li>
+        <li><a href="/couture">Couture &amp; RTW</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/ys_styling/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>Copyright &copy; 2026 YS Styling. All rights reserved.</p>
+      <div class="footer-social"><a href="/consultation">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ NEWSLETTER POPUP (exit-intent or time-on-site) ============ -->
+<div class="modal-scrim" data-newsletter-popup>
+  <div class="modal-card modal-narrow" role="dialog" aria-modal="true" aria-label="Subscribe to our newsletter">
+    <button class="modal-close" data-popup-close aria-label="Close">&times;</button>
+    <div class="modal-copy">
+      <span class="eyebrow">Before You Go</span>
+      <h3>Join the YS Styling List</h3>
+      <p>First access to new collections, styling notes, and consultation openings — straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
