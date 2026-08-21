@@ -92,6 +92,97 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---- Generic modal open/close (search + contact) ---- */
+  function wireSimpleModal(openSelector, scrimSelector) {
+    var scrim = document.querySelector(scrimSelector);
+    if (!scrim) return null;
+    document.querySelectorAll(openSelector).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        scrim.classList.add('is-open');
+        var input = scrim.querySelector('[data-search-input]');
+        if (input) setTimeout(function () { input.focus(); }, 50);
+      });
+    });
+    scrim.querySelectorAll('[data-popup-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () { scrim.classList.remove('is-open'); });
+    });
+    scrim.addEventListener('click', function (e) {
+      if (e.target === scrim) scrim.classList.remove('is-open');
+    });
+    return scrim;
+  }
+
+  wireSimpleModal('[data-contact-open]', '[data-contact-modal]');
+  var searchScrim = wireSimpleModal('[data-search-open]', '[data-search-modal]');
+
+  /* ---- Site search ---- */
+  if (searchScrim) {
+    var SITE_INDEX = [
+      { title: 'Home', section: 'Page', url: '/', keywords: 'homepage where craft meets couture' },
+      { title: 'About', section: 'Page', url: 'about.html', keywords: 'about us philosophy craft founder susan idiare' },
+      { title: 'Bridal Collection', section: 'Page', url: 'bridal.html', keywords: 'bridal wedding gowns couture' },
+      { title: 'White Bridals', section: 'Bridal', url: 'bridal-white.html', keywords: 'white wedding gowns bridal collection' },
+      { title: 'Trad Bridals', section: 'Bridal', url: 'bridal-trad.html', keywords: 'traditional wedding attire aso-oke gele' },
+      { title: 'The Aurora Gown', section: 'White Bridals', url: 'dress-white-aurora.html', keywords: 'white bridal gown beaded' },
+      { title: 'The Seraphine Gown', section: 'White Bridals', url: 'dress-white-seraphine.html', keywords: 'white bridal gown fitted low back' },
+      { title: 'The Odette Gown', section: 'White Bridals', url: 'dress-white-odette.html', keywords: 'white bridal gown mermaid' },
+      { title: 'The Adaeze Set', section: 'Trad Bridals', url: 'dress-trad-adaeze.html', keywords: 'traditional aso-oke beaded gele' },
+      { title: 'The Folake Set', section: 'Trad Bridals', url: 'dress-trad-folake.html', keywords: 'traditional iro buba gele' },
+      { title: 'The Amara Set', section: 'Trad Bridals', url: 'dress-trad-amara.html', keywords: 'traditional wrapper blouse sleeves' },
+      { title: 'Bespoke & Ready-to-Wear', section: 'Page', url: 'couture.html', keywords: 'couture custom tailoring ready to wear' },
+      { title: 'Book a Consultation', section: 'Page', url: 'consultation.html', keywords: 'consultation fees booking appointment' },
+      { title: 'Blog', section: 'Page', url: 'blog/index.html', keywords: 'journal notes from the atelier' },
+      { title: 'Five Questions to Ask Before Your First Fitting', section: 'Blog', url: 'blog/five-questions-to-ask-before-your-first-fitting.html', keywords: 'fitting consultation questions' },
+      { title: 'How Far in Advance Should You Start Your Bridal Order?', section: 'Blog', url: 'blog/how-far-in-advance-should-you-start-your-bridal-order.html', keywords: 'timeline bridal order months' },
+      { title: 'Building a Capsule Wardrobe Around One Statement Piece', section: 'Blog', url: 'blog/building-a-capsule-wardrobe-around-one-statement-piece.html', keywords: 'capsule wardrobe ready to wear' },
+      { title: 'Inside Our Quality Control Process', section: 'Blog', url: 'blog/inside-our-quality-control-process.html', keywords: 'quality control production supervision' },
+      { title: 'What to Bring to Your Styling Consultation', section: 'Blog', url: 'blog/what-to-bring-to-your-styling-consultation.html', keywords: 'consultation reference budget' },
+      { title: "Silhouettes We're Seeing More Requests For", section: 'Blog', url: 'blog/silhouettes-were-seeing-more-requests-for.html', keywords: 'silhouette trends necklines' },
+      { title: 'Understanding Fabric Weight in Custom Dresses', section: 'Blog', url: 'blog/understanding-fabric-weight-in-custom-dresses.html', keywords: 'fabric weight silk satin' }
+    ];
+
+    var searchInput = searchScrim.querySelector('[data-search-input]');
+    var searchResults = searchScrim.querySelector('[data-search-results]');
+
+    function renderResults(query) {
+      searchResults.innerHTML = '';
+      if (!query) return;
+      var q = query.toLowerCase();
+      var matches = SITE_INDEX.filter(function (item) {
+        return item.title.toLowerCase().indexOf(q) !== -1 || item.keywords.toLowerCase().indexOf(q) !== -1;
+      }).slice(0, 8);
+
+      if (!matches.length) {
+        searchResults.innerHTML = '<p class="search-empty">No results found. Try a different search.</p>';
+        return;
+      }
+
+      matches.forEach(function (item) {
+        var a = document.createElement('a');
+        a.href = item.url;
+        a.innerHTML = item.title + '<span class="search-result-meta">' + item.section + '</span>';
+        searchResults.appendChild(a);
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () { renderResults(searchInput.value.trim()); });
+      searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          var first = searchResults.querySelector('a');
+          if (first) window.location.href = first.getAttribute('href');
+        }
+      });
+    }
+
+    searchScrim.addEventListener('transitionend', function () {
+      if (!searchScrim.classList.contains('is-open') && searchInput) {
+        searchInput.value = '';
+        searchResults.innerHTML = '';
+      }
+    });
+  }
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-scrim.is-open').forEach(function (s) {

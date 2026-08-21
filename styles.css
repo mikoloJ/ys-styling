@@ -111,6 +111,7 @@ h3 { font-size: clamp(20px, 2.4vw, 26px); }
   font-size: 18px;
   line-height: 1.7;
   color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 
@@ -234,6 +235,24 @@ h3 { font-size: clamp(20px, 2.4vw, 26px); }
   align-items: center;
   gap: 20px;
 }
+
+/* Icon buttons (search, phone) — always visible, desktop and mobile */
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color .3s var(--ease);
+}
+
+.nav-icon-btn:hover { color: var(--gold-deep); }
+.nav-icon-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; }
 
 /* Hamburger toggle — hidden on desktop */
 .nav-toggle {
@@ -554,6 +573,8 @@ section         { padding: 110px 0; }
 
 .collection-card .cc-link .arrow       { transition: transform .3s var(--ease); }
 .collection-card:hover .cc-link .arrow { transform: translateX(6px); }
+.collection-card h3 .arrow             { display: inline-block; transition: transform .3s var(--ease); }
+.collection-card:hover h3 .arrow       { transform: translateX(6px); }
 
 @media (max-width: 900px) {
   .collections-grid { grid-template-columns: 1fr; }
@@ -734,6 +755,69 @@ section         { padding: 110px 0; }
 
 .blog-featured .ph-panel       { min-height: 380px; }
 .blog-featured .blog-card-body { justify-content: center; padding: 48px; }
+
+/* ============================================================
+   DRESS GRID — listing pages (bridal-white.html, bridal-trad.html)
+   ============================================================ */
+.dress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--ink-line);
+}
+
+.dress-card {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.dress-card .ph-panel { min-height: 340px; }
+.dress-card .ph-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.dress-card-body {
+  padding: 22px 24px 28px;
+}
+
+.dress-card h3 { color: var(--paper); font-size: 19px; margin-bottom: 4px; }
+
+.dress-card .cc-link {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dress-card .cc-link .arrow       { transition: transform .3s var(--ease); }
+.dress-card:hover .cc-link .arrow { transform: translateX(6px); }
+
+@media (max-width: 980px) { .dress-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .dress-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   DRESS DETAIL PAGE — image gallery
+   ============================================================ */
+.dress-gallery {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: var(--ink-line);
+}
+
+.dress-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dress-gallery img:first-child { grid-row: 1 / 3; }
+
+@media (max-width: 780px) {
+  .dress-gallery { grid-template-columns: 1fr; grid-template-rows: none; }
+  .dress-gallery img:first-child { grid-row: auto; }
+  .dress-gallery img { aspect-ratio: 4 / 5; }
+}
 .blog-featured h3              { font-size: clamp(24px, 3vw, 32px); }
 
 @media (max-width: 900px) {
@@ -916,6 +1000,69 @@ section         { padding: 110px 0; }
   .modal-copy  { padding: 40px 28px; }
 }
 
+/* ============================================================
+   SEARCH MODAL
+   ============================================================ */
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  background: rgba(235,236,237,0.06);
+  border: 1px solid var(--ink-line);
+  color: var(--paper);
+  margin-bottom: 18px;
+}
+
+.search-input:focus { outline: none; border-color: var(--gold); }
+.search-input::placeholder { color: var(--mauve-soft); }
+
+.search-results {
+  width: 100%;
+  text-align: left;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.search-results a {
+  display: block;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--ink-line);
+  color: var(--paper);
+}
+
+.search-results a:hover { color: var(--gold); }
+.search-results a .search-result-meta { display: block; font-size: 12px; color: var(--mauve-soft); margin-top: 3px; }
+.search-empty { color: var(--mauve-soft); font-size: 14px; padding: 8px 4px; }
+
+/* ============================================================
+   CONTACT MODAL
+   ============================================================ */
+.contact-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.contact-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 12px;
+  border: 1px solid var(--ink-line);
+  color: var(--paper);
+  text-align: center;
+  transition: border-color .3s var(--ease), color .3s var(--ease);
+}
+
+.contact-option svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
+.contact-option span { font-size: 12px; letter-spacing: var(--tracking-wide); text-transform: uppercase; font-weight: 600; }
+.contact-option:hover { border-color: var(--gold); color: var(--gold); }
+
+.contact-note { color: var(--mauve-soft); font-size: 13px; margin-top: 20px; margin-bottom: 0; }
+
 
 /* ============================================================
    NEWSLETTER FORM
@@ -1068,9 +1215,9 @@ textarea:focus-visible {
 /* ============================================================
    ABOUT PAGE — HERO
    ============================================================ */
-.about-hero          { padding: 160px 0 90px; }
+.about-hero          { padding: 90px 0; }
 .about-hero .eyebrow { display: block; margin-bottom: 18px; }
-.about-hero .lede    { max-width: 640px; margin-top: 22px; }
+.about-hero .lede    { max-width: none; margin-top: 22px; }
 
 .values-grid {
   display: grid;
@@ -1090,6 +1237,9 @@ textarea:focus-visible {
 /* ============================================================
    GENERIC PAGE HERO
    ============================================================ */
-.page-hero          { padding: 150px 0 70px; background: var(--paper-warm); }
+.page-hero          { padding: 70px 0; background: var(--paper-warm); }
 .page-hero .eyebrow { display: block; margin-bottom: 16px; }
 .page-hero .lede    { max-width: 560px; margin-top: 20px; color: var(--ink-soft); }
+.page-hero--bridal .lede { max-width: none; }
+.page-hero--couture .lede { max-width: none; }
+.page-hero--blog .lede { max-width: none; }
