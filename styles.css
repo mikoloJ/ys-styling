@@ -526,6 +526,11 @@ section         { padding: 110px 0; }
   .split-media { min-height: 340px; order: -1; }
 }
 
+@media (max-width: 700px) {
+  .split-tight-bottom { padding-bottom: 24px; }
+  .split-tight-bottom .split-copy { padding-bottom: 24px; }
+}
+
 
 /* ============================================================
    COLLECTIONS GRID
@@ -712,6 +717,10 @@ section         { padding: 110px 0; }
 
 .cta-banner h2 { color: var(--paper); }
 .cta-banner p  { color: var(--mauve-soft); margin: 20px 0 36px; }
+
+@media (max-width: 700px) {
+  .cta-banner { padding: 44px 24px; }
+}
 
 
 /* ============================================================
