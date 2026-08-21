@@ -375,6 +375,10 @@ h3 { font-size: clamp(20px, 2.4vw, 26px); }
       rgba(22,20,26,0.60) 100%
     );
   }
+
+  /* Pull content toward the bottom so there isn't a large empty gap under the nav */
+  .hero { min-height: 64vh; align-items: flex-end; }
+  .hero-inner { padding: 16px 24px 40px; }
 }
 
 
