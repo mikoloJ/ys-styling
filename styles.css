@@ -114,6 +114,8 @@ h3 { font-size: clamp(20px, 2.4vw, 26px); }
   text-wrap: pretty;
 }
 
+.lede + .lede { margin-top: 18px; }
+
 
 /* ============================================================
    BUTTONS
@@ -458,6 +460,20 @@ h3 { font-size: clamp(20px, 2.4vw, 26px); }
 
 .ph-panel.light .ph-label { color: var(--mauve); }
 
+/* Typographic topic card — editorial-style text graphic in place of a photo */
+.ph-topic {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.25;
+  color: var(--gold);
+  text-align: center;
+  padding: 0 32px;
+}
+
+.ph-panel.light .ph-topic { color: var(--gold-deep); }
+
 .ph-panel.short { min-height: 220px; }
 
 
@@ -586,8 +602,8 @@ section         { padding: 110px 0; }
    ============================================================ */
 .process-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
   position: relative;
 }
 
@@ -615,6 +631,10 @@ section         { padding: 110px 0; }
 .process-step p  { color: var(--mauve-soft); font-size: 14.5px; line-height: 1.65; }
 
 @media (max-width: 900px) {
+  .process-list { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+}
+
+@media (max-width: 600px) {
   .process-list { grid-template-columns: 1fr; gap: 36px; }
 }
 
@@ -760,20 +780,21 @@ section         { padding: 110px 0; }
    DRESS GRID — listing pages (bridal-white.html, bridal-trad.html)
    ============================================================ */
 .dress-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2px;
-  background: var(--ink-line);
+  background: var(--ink);
 }
 
 .dress-card {
   background: var(--ink);
   display: flex;
   flex-direction: column;
+  flex: 0 0 calc(33.333% - 2px);
 }
 
-.dress-card .ph-panel { min-height: 340px; }
-.dress-card .ph-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dress-card .ph-panel { aspect-ratio: 4 / 5; min-height: 0; }
+.dress-card .ph-panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .dress-card-body {
   padding: 22px 24px 28px;
@@ -796,8 +817,8 @@ section         { padding: 110px 0; }
 .dress-card .cc-link .arrow       { transition: transform .3s var(--ease); }
 .dress-card:hover .cc-link .arrow { transform: translateX(6px); }
 
-@media (max-width: 980px) { .dress-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 640px) { .dress-grid { grid-template-columns: 1fr; } }
+@media (max-width: 980px) { .dress-card { flex-basis: calc(50% - 1px); } }
+@media (max-width: 640px) { .dress-card { flex-basis: 100%; } }
 
 /* ============================================================
    DRESS DETAIL PAGE — image gallery
@@ -818,6 +839,27 @@ section         { padding: 110px 0; }
   .dress-gallery img:first-child { grid-row: auto; }
   .dress-gallery img { aspect-ratio: 4 / 5; }
 }
+
+/* Flexible photo gallery — any number of images, original aspect ratio, no cropping */
+.dress-photos {
+  column-count: 4;
+  column-gap: 4px;
+  padding: 0 var(--container-pad, 32px);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.dress-photos img {
+  width: 100%;
+  display: block;
+  margin-bottom: 4px;
+  break-inside: avoid;
+  border-radius: 2px;
+}
+
+@media (max-width: 980px) { .dress-photos { column-count: 3; } }
+@media (max-width: 700px) { .dress-photos { column-count: 2; } }
+@media (max-width: 460px) { .dress-photos { column-count: 1; } }
 .blog-featured h3              { font-size: clamp(24px, 3vw, 32px); }
 
 @media (max-width: 900px) {
@@ -1218,6 +1260,8 @@ textarea:focus-visible {
 .about-hero          { padding: 90px 0; }
 .about-hero .eyebrow { display: block; margin-bottom: 18px; }
 .about-hero .lede    { max-width: none; margin-top: 22px; }
+
+.about-values { background: var(--ink-soft); }
 
 .values-grid {
   display: grid;
