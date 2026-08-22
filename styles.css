@@ -739,8 +739,6 @@ section         { padding: 110px 0; }
   flex-direction: column;
 }
 
-.blog-card .ph-panel { min-height: 220px; }
-
 .blog-card-body {
   padding: 30px 28px;
   flex: 1;
@@ -780,14 +778,24 @@ section         { padding: 110px 0; }
 /* Featured row */
 .blog-featured {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   background: var(--ink-line);
   gap: 2px;
   margin-bottom: 2px;
 }
 
-.blog-featured .ph-panel       { min-height: 380px; }
+.blog-featured-section { padding-top: 0; padding-bottom: 64px; }
+.blog-latest-section   { padding-top: 0; padding-bottom: 64px; }
+.blog-latest-head      { padding-top: 48px; }
+
 .blog-featured .blog-card-body { justify-content: center; padding: 48px; }
+
+@media (max-width: 700px) {
+  .blog-featured-section { padding-bottom: 32px; }
+  .blog-latest-section   { padding-bottom: 40px; }
+  .blog-latest-head      { padding-top: 24px; }
+  .blog-featured .blog-card-body { padding: 32px 28px; }
+}
 
 /* ============================================================
    DRESS GRID — listing pages (bridal-white.html, bridal-trad.html)
@@ -874,10 +882,6 @@ section         { padding: 110px 0; }
 @media (max-width: 700px) { .dress-photos { column-count: 2; } }
 @media (max-width: 460px) { .dress-photos { column-count: 1; } }
 .blog-featured h3              { font-size: clamp(24px, 3vw, 32px); }
-
-@media (max-width: 900px) {
-  .blog-featured { grid-template-columns: 1fr; }
-}
 
 
 /* ============================================================
@@ -1324,3 +1328,10 @@ textarea:focus-visible {
 .page-hero--bridal .lede { max-width: none; }
 .page-hero--couture .lede { max-width: none; }
 .page-hero--blog .lede { max-width: none; }
+
+@media (max-width: 700px) {
+  .page-hero { padding: 40px 0 28px; }
+  .page-hero h1 { font-size: 32px; }
+  /* Fee details are repeated in the form's note just above submit — hide the duplicate here so the form itself is visible without scrolling */
+  .hero-fee-note { display: none; }
+}
