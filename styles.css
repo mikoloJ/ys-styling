@@ -1328,10 +1328,9 @@ textarea:focus-visible {
 .page-hero--bridal .lede { max-width: none; }
 .page-hero--couture .lede { max-width: none; }
 .page-hero--blog .lede { max-width: none; }
+.page-hero--consultation .lede { max-width: none; }
 
 @media (max-width: 700px) {
   .page-hero { padding: 40px 0 28px; }
   .page-hero h1 { font-size: 32px; }
-  /* Fee details are repeated in the form's note just above submit — hide the duplicate here so the form itself is visible without scrolling */
-  .hero-fee-note { display: none; }
 }
